@@ -5,10 +5,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 function App() {
   return (
     <div className='App'>
-      <Router>
-        <h1> Welcome </h1>
-        <Allroutes />
-      </Router>
+      <h1>Welcome</h1>
     </div>
   );
 }
