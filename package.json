@@ -2,10 +2,8 @@
   "name": "pitcher",
   "version": "0.1.0",
   "private": true,
-<<<<<<< HEAD
+  "homepage": "${process.env.HOMEPAGE}",
   
-=======
->>>>>>> 7af8300a25c8b5eb2500b0ff109ef1e03344a0ad
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -23,11 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-<<<<<<< HEAD
     "build": "react-scripts build",
-=======
-    "build": "CI=False PUBLIC_URL=https://innovationcell-nitrr.github.io/pitcher react-scripts build",
->>>>>>> 7af8300a25c8b5eb2500b0ff109ef1e03344a0ad
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

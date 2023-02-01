@@ -1,7 +1,9 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React from 'react'
+
 function Buy() {
-  return <div>Buy</div>;
+  return (
+    <div>Buy</div>
+  )
 }
 
-export default Buy;
+export default Buy
