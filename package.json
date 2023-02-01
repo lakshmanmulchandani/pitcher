@@ -2,7 +2,7 @@
   "name": "pitcher",
   "version": "0.1.0",
   "private": true,
-  "homepage": "${process.env.HOMEPAGE}",
+  
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -19,8 +19,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "HOMEPAGE=http://localhost:3000 react-scripts start",
-    "build": "CI=False HOMEPAGE=https://innovationcell-nitrr.github.io/pitcher react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
