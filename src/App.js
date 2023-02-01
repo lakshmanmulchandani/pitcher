@@ -8,6 +8,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Welcome</h1>
+      <h4>Entry Page</h4>
       <h4 onClick={() => navigate("")}>EntryPage</h4>
       <h4 onClick={() => navigate("Portfolios")}>Portfolio</h4>
       <h4 onClick={() => navigate("Buy")}>Buy</h4>
