@@ -1,15 +1,19 @@
 import React from "react";
 import Portfolio from "./Portfolio";
 import Grid from "@material-ui/core/Grid";
+import {useNavigate} from "react-router-dom";
 import useStyles from "./styles";
+
 import "./Portfolio.css";
 const post = {
   title: "Company Name",
   message: "about company",
   tags: ["tag1", "tag2", "tag3"],
 };
+
 function Portfolios() {
   const classes = useStyles();
+  const navigate = useNavigate();
   return (
     <div>
       <h1>portfolios</h1>
