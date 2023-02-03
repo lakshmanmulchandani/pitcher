@@ -2,7 +2,7 @@
   "name": "pitcher",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/InnovationCell-NITRR/pitcher",
+  "homepage": "https://github.com/InnovationCell-NITRR/pitcher/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "CI=False  react-scripts build && echo '/* /index.html 200' | cat >build/_redirects",
     "test": "react-scripts test",
