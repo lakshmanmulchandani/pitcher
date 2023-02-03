@@ -14,15 +14,17 @@ const post = {
 function Portfolios() {
   const classes = useStyles();
   const navigate = useNavigate();
-  // const id = 5;
+
+  // an api will get the data of all posts here, we will use a map to make all posts and they will be wrapped around div which will take post_id as input for Buy then inside buy using that id we can access further data from api
+  const id = 5;
   return (
     <div>
       <h1>portfolios</h1>
       <div className='portfolio-container'>
-        {/* <div onClick={() => navigate(`Buy/${id}`)}>
+        <div onClick={() => navigate(`Buy/${id}`)}>
           {" "}
           <Portfolio post={post} />
-        </div> */}
+        </div>
         <Portfolio post={post} />
         <Portfolio post={post} />
 

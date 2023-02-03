@@ -10,7 +10,7 @@ function Allroutes() {
       <Routes>
         <Route path='/' element={<EntryPage />} />
         <Route path='/Buy' element={<Buy />} />
-        {/* <Route path='/Buy/:id' element={<Buy />} /> */}
+        <Route path='Portfolios/Buy/:id' element={<Buy />} />
         {/* Buy will be later modified to Buy/:id */}
         <Route path='/Portfolios' element={<Portfolios />} />
         <Route path='/Admin' element={<Admin />} />
