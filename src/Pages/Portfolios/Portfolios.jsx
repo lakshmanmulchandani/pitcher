@@ -3,8 +3,8 @@ import Portfolio from "./Portfolio";
 import Grid from "@material-ui/core/Grid";
 import {useNavigate} from "react-router-dom";
 import useStyles from "./styles";
-import Buy from "../Buy/Buy";
 import "./Portfolio.css";
+
 const post = {
   title: "Company Name",
   message: "about company",
@@ -16,6 +16,8 @@ function Portfolios() {
   const navigate = useNavigate();
 
   // an api will get the data of all posts here, we will use a map to make all posts and they will be wrapped around div which will take post_id as input for Buy then inside buy using that id we can access further data from api
+
+  // div posts.map(post)= {div onclick (post.id) {port}} div
   const id1 = "0";
   const id2 = "1";
   const id3 = "2";

@@ -6,13 +6,21 @@ import reportWebVitals from "./reportWebVitals";
 import Allroutes from "./Allroutes";
 import {HashRouter as Router} from "react-router-dom";
 import "./App.css";
+import {Provider} from "react-redux";
+import {createStore, applyMiddleware, compose} from "redux";
+import thunk from "redux-thunk";
+
+import {reducers} from "./reducers";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 root.render(
   <React.StrictMode>
-    <Router>
-      <App />
-      <Allroutes />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+        <Allroutes />
+      </Router>
+    </Provider>
   </React.StrictMode>
 );
 

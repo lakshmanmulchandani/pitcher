@@ -3,6 +3,7 @@ import "./App.css";
 import Allroutes from "./Allroutes";
 import {BrowserRouter as Router} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+
 function App() {
   const navigate = useNavigate();
   return (
