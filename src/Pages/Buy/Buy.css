@@ -1,0 +1,22 @@
+.Buy-Container{
+    /* max-width: 700px; */
+    /* margin: 30px; */
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    /* flex-direction: column; */
+  
+}
+
+.info{
+    /* max-width: 450px; */
+    /* min-width: 300px; */
+
+}
+
+.Dashboard
+{
+    /* max-width: 450px; */
+    /* min-width: 300px; */
+}
