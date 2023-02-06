@@ -1,5 +1,6 @@
 import React from "react";
 import {useParams} from "react-router";
+import {useSelector} from "react-redux";
 import {
   Card,
   CardActions,
@@ -14,8 +15,15 @@ import "./Buy.css";
 function Buy() {
   var id = useParams("id");
   const classes = useStyles();
+  const posts = useSelector((state) => state.portfolios);
   id = id.id;
   console.log(id);
+
+  var i = 0;
+  while (id != posts[i]._id) {
+    i++;
+  }
+  const profile = posts[i];
   const dummy = [
     {
       name: "Apples",
@@ -31,28 +39,24 @@ function Buy() {
     },
   ];
 
-  console.log(dummy[id]);
+  // console.log(dummy[id]);
+
   return (
     <div>
-      Buy
-      <div>
-        <h2>{dummy[id].name}</h2>
-        <h2>{dummy[id].about}</h2>
-      </div>
       <div className='Buy-Container'>
         <div className='info'>
           <Card>
-            <div className='title'>{dummy[id].name}</div>
+            <div className='title'>{profile.name}</div>
             <CardMedia
               className={classes.media}
               image={
                 // post.selectedFile ||
                 "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
               }
-              title={dummy[id].name}
+              title={profile.name}
             />
 
-            <div className='about'>{dummy[id].about}</div>
+            <div className='about'>{profile.about}</div>
           </Card>
         </div>
 
