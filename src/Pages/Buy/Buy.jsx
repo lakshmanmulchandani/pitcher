@@ -43,11 +43,6 @@ function Buy() {
 
   return (
     <div>
-      Buy
-      <div>
-        <h2>{profile.name}</h2>
-        <h2>{profile.about}</h2>
-      </div>
       <div className='Buy-Container'>
         <div className='info'>
           <Card>
