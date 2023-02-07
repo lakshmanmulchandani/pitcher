@@ -5,7 +5,7 @@ export default makeStyles({
     height: 0,
     paddingTop: "56.25%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
-    backgroundBlendMode: "darken",
+    backgroundBlendMode: "lighten",
   },
   border: {
     border: "solid",
@@ -24,12 +24,15 @@ export default makeStyles({
     minWidth: "300px",
     height: "500px",
     position: "relative",
+    background: "#ffffff1a",
+    border: "1px solid rgba(255, 255, 255, 0.5)",
   },
   overlay: {
     position: "absolute",
     top: "20px",
     left: "20px",
     color: "white",
+    border: " 1px solid rgba(255, 255, 255, 0.5)",
   },
   overlay2: {
     position: "absolute",
@@ -49,6 +52,13 @@ export default makeStyles({
   },
   title: {
     padding: "0 16px",
+    color: "#fff",
+  },
+  about: {
+    color: " rgba(255, 255, 255, 0.5)",
+  },
+  details: {
+    color: " rgba(255, 255, 255, 0.5)",
   },
   cardActions: {
     padding: "0 16px 8px 16px",

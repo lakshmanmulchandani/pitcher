@@ -27,7 +27,10 @@ function Portfolio({post}) {
         title={post.name}
       />
       <div className={classes.details}>
-        <Typography variant='body2' color='textSecondary' component='h2'>
+        <Typography
+          variant='body2'
+          //  color='textSecondary'
+          component='h2'>
           {post.tags.map((tag) => `#${tag} `)}
         </Typography>
       </div>
@@ -39,7 +42,11 @@ function Portfolio({post}) {
         {post.name}
       </Typography>
       <CardContent>
-        <Typography variant='body2' color='textSecondary' component='p'>
+        <Typography
+          className={classes.about}
+          variant='body2'
+          //  color='textSecondary'
+          component='p'>
           {post.about}
         </Typography>
       </CardContent>

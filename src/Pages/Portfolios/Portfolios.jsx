@@ -39,7 +39,7 @@ function Portfolios() {
     <div className='portfolio-container'>
       {" "}
       {posts.map((post) => (
-        <div onClick={() => navigate(`Buy/${post._id}`)}>
+        <div className='card-div' onClick={() => navigate(`Buy/${post._id}`)}>
           <Portfolio post={post} />
         </div>
       ))}
