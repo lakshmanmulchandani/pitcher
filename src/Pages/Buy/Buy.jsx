@@ -24,20 +24,6 @@ function Buy() {
     i++;
   }
   const profile = posts[i];
-  const dummy = [
-    {
-      name: "Apples",
-      about: "We sell apples",
-    },
-    {
-      name: "Oranges",
-      about: "We sell Oranges",
-    },
-    {
-      name: "Bananas",
-      about: "We sell Bananas",
-    },
-  ];
 
   // console.log(dummy[id]);
 
