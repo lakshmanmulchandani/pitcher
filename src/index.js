@@ -3,16 +3,22 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { composeWithDevTools } from "redux-devtools-extension";
 import Allroutes from "./Allroutes";
-import {HashRouter as Router} from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import "./App.css";
-import {Provider} from "react-redux";
-import {createStore, applyMiddleware, compose} from "redux";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
-import {reducers} from "./reducers";
+import { reducers } from "./reducers";
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
+const middleware = [thunk];
+const store = createStore(
+  reducers,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
