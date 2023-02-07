@@ -34,7 +34,9 @@ function Portfolios() {
   const id2 = "1";
   const id3 = "2";
   return !posts.length ? (
-    <h1>portfolios</h1>
+    <div className='portfolio-container'>
+      <h1>portfolios</h1>
+    </div>
   ) : (
     <div className='portfolio-container'>
       {" "}
