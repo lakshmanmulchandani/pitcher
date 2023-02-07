@@ -32,10 +32,7 @@ function EntryPage() {
     const code = codeRef.current.value;
 
     
-    if (name === "" || code === "") {
-      return;
-    }
-
+    
     console.log(code, name);
     dispatch(login(code, name));
 

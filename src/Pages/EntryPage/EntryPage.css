@@ -67,7 +67,7 @@
     font-weight: 300;
 }
 
-.container .card .content a {
+.container .card .content button {
     position: relative;
     display: inline-block;
     padding: 8px 20px;
@@ -78,6 +78,7 @@
     text-decoration: none;
     font-weight: 500;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .content p input[type="text"] {
