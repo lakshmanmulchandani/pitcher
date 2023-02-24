@@ -13,8 +13,12 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import useStyles from "./styles";
 
+
+
+
 function Portfolio({post}) {
   const classes = useStyles();
+  console.log("post is ",post);
 
   return (
     <Card className={classes.card}>
@@ -50,6 +54,7 @@ function Portfolio({post}) {
           {post.about}
         </Typography>
       </CardContent>
+      
     </Card>
   );
 }

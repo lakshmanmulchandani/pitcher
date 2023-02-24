@@ -27,3 +27,23 @@
     /* max-width: 450px; */
     /* min-width: 300px; */
 }
+
+
+
+/* stock css  */
+
+.stock_wrapper {
+    background-color: aquamarine;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#stock {
+    background-color: blue;
+    font-size: 5rem;
+    padding: 10rem;
+}
