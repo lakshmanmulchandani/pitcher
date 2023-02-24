@@ -38,16 +38,11 @@ const handleBuy = () => {
   console.log(buyProd);
 
   socket.emit("buy", id, buyProd);
-
-  socket.on("show-stock", (stock) => {
-      console.log("show-stock ",stock);
-      displayStock(stock);
-    })
   
 }
 
-
   useEffect(() => {
+    console.log("useeffect");
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
       
@@ -64,7 +59,10 @@ const handleBuy = () => {
  
     
 
-
+    socket.on("stock-empty", () => {
+        console.log("stock empty working");
+        alert("stock empty");
+      })
   }, [])
   
 
