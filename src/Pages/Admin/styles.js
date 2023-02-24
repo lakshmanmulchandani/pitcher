@@ -4,10 +4,14 @@ export default makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
+      display: "flex",
+      justifyContent: "centre",
     },
   },
   paper: {
     padding: theme.spacing(2),
+    display: "flex",
+    maxWidth: "450px",
   },
   form: {
     display: "flex",

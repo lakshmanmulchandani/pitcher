@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef} from "react";
 import {useParams} from "react-router";
 import {useSelector} from "react-redux";
 import {
@@ -13,61 +13,46 @@ import {
 import useStyles from "./styles";
 import "./Buy.css";
 
+import {io} from "socket.io-client";
 
-import { io } from "socket.io-client"
-
-
-
-const socket = io("http://localhost:5000");
-
+const socket = io("https://pitcherfork.onrender.com");
 
 const displayStock = (stock) => {
   let div = document.getElementById("stock");
   div.textContent = stock;
-}
-
+};
 
 function Buy() {
   const stockRef = useRef("");
   const buyRef = useRef("");
 
+  const handleBuy = () => {
+    let buyProd = buyRef.current.value;
+    console.log(buyProd);
 
-const handleBuy = () => {
-
-  let buyProd = buyRef.current.value;
-  console.log(buyProd);
-
-  socket.emit("buy", id, buyProd);
-  
-}
+    socket.emit("buy", id, buyProd);
+  };
 
   useEffect(() => {
     console.log("useeffect");
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
-      
     });
     socket.emit("join-room", id);
-    socket.emit("getStock", id, getData => {
-      displayStock(getData)
+    socket.emit("getStock", id, (getData) => {
+      displayStock(getData);
     });
-  
+
     socket.on("show-stock", (stock) => {
-      console.log("show-stock ",stock);
+      console.log("show-stock ", stock);
       displayStock(stock);
-    })
- 
-    
+    });
 
     socket.on("stock-empty", () => {
-        console.log("stock empty working");
-        alert("stock empty");
-      })
-  }, [])
-  
-
-
-
+      console.log("stock empty working");
+      alert("stock empty");
+    });
+  }, []);
 
   var id = useParams("id");
   const classes = useStyles();
@@ -113,10 +98,12 @@ const handleBuy = () => {
           </div>
         </div>
       </div>
-      <div className="stock_wrapper">
-        <div id="stock">7</div>
-        <input ref={buyRef} type="number" />
-        <button type="submit" onClick={handleBuy}>Buy</button>
+      <div className='stock_wrapper'>
+        <div id='stock'>7</div>
+        <input ref={buyRef} type='number' />
+        <button type='submit' onClick={handleBuy}>
+          Buy
+        </button>
       </div>
     </div>
   );
