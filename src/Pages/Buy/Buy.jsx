@@ -15,7 +15,7 @@ import "./Buy.css";
 
 import {io} from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://pitcherfork.onrender.com");
 
 const displayStock = (stock) => {
   let div = document.getElementById("stock");
