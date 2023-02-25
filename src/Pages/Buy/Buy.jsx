@@ -13,9 +13,12 @@ import {
 import useStyles from "./styles";
 import "./Buy.css";
 
+import { ToastCallError,ToastCallSuccess } from "../../ReactToast";
+
 import {io} from "socket.io-client";
 
 const socket = io("https://pitcherfork.onrender.com");
+// const socket = io("http://localhost:5000")
 
 const displayStock = (stock) => {
   let div = document.getElementById("stock");
@@ -50,8 +53,12 @@ function Buy() {
 
     socket.on("stock-empty", () => {
       console.log("stock empty working");
-      alert("stock empty");
+      ToastCallError("stock empty");
     });
+
+    socket.on("successfully-purchased", (purchasedProd) => {
+      ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`)
+    })
   }, []);
 
   var id = useParams("id");
