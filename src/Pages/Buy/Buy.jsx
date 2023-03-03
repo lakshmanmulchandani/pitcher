@@ -1,3 +1,4 @@
+
 import React, {useEffect, useRef} from "react";
 import {useParams} from "react-router";
 import {useSelector} from "react-redux";
@@ -17,26 +18,33 @@ import { ToastCallError,ToastCallSuccess } from "../../ReactToast";
 
 import {io} from "socket.io-client";
 
-const socket = io("https://pitcherfork.onrender.com");
-// const socket = io("http://localhost:5000")
+// const socket = io("https://pitcherfork.onrender.com");
+
+console.log("outside buy");
 
 const displayStock = (stock) => {
   let div = document.getElementById("stock");
   div.textContent = stock;
 };
-
+let socket;
 function Buy() {
   const stockRef = useRef("");
   const buyRef = useRef("");
 
   const handleBuy = () => {
     let buyProd = buyRef.current.value;
-    console.log(buyProd);
+    console.log("buyProd", buyProd);
+    if (buyProd < 0 || !buyProd) {
+      ToastCallError("Enter buyProd ");
+      return;
+    }
+
 
     socket.emit("buy", id, buyProd);
   };
 
   useEffect(() => {
+    socket = io("http://localhost:5000")
     console.log("useeffect");
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
@@ -51,6 +59,7 @@ function Buy() {
       displayStock(stock);
     });
 
+
     socket.on("stock-empty", () => {
       console.log("stock empty working");
       ToastCallError("stock empty");
@@ -59,6 +68,18 @@ function Buy() {
     socket.on("successfully-purchased", (purchasedProd) => {
       ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`)
     })
+
+
+    socket.on('disconnect', function () {
+      console.log('Got disconnect!');
+      setInterval(() => {
+        console.log("set interval");
+      }, 5000);
+    });
+    return () => {
+      console.log("socket disconnecg");
+      socket.disconnect();
+    }
   }, []);
 
   var id = useParams("id");
