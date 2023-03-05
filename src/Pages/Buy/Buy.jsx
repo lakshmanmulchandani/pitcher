@@ -44,7 +44,7 @@ function Buy() {
   };
 
   useEffect(() => {
-    socket = io("http://localhost:5000")
+    socket = io("https://pitcherfork.onrender.com")
     console.log("useeffect");
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
