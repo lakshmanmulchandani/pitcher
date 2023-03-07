@@ -8,7 +8,7 @@ import {
 export const entryReducer = (state = { user: {} }, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
-      return { loading: true, isAuthenticated: false };
+      return { ...state, loading: true, isAuthenticated: false };
     case LOGIN_SUCCESS:
       return {
         ...state,
