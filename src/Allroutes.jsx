@@ -9,7 +9,7 @@ function Allroutes() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<EntryPage />} />
+        <Route path='/' element={<><Navbar /><EntryPage /></>} />
 
         <Route path='Portfolios/Buy/:id' element={<Buy />} />
         {/* Buy will be later modified to Buy/:id */}
