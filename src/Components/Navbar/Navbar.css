@@ -1,0 +1,24 @@
+/* navbar.css */
+
+.logo {
+    display: block;
+  }
+  
+  
+  .titleNav {
+ 
+  
+    @media (min-width: 601px) {
+      display: none;
+    }
+  }
+  
+  .MuiToolbar-root {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .MuiTypography-subtitle1 {
+    margin-left: 8px;
+  }
+  
