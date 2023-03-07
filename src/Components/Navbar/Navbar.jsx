@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {AppBar, Toolbar, Typography, IconButton} from "@material-ui/core";
 import MoneyIcon from "@material-ui/icons/Money";
@@ -6,6 +6,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import logo from "./logo.jpg";
 import "./Navbar.css";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -31,8 +32,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Navbar() {
+
+
+
+const displayUserStock = (stock) => {
+  let div = document.getElementById("userStockNav");
+  div.textContent = stock;
+};
+
+
+function Navbar({socket}) {
   const classes = useStyles();
+  const { user } = useSelector((state) => state.entryReducer);
+ 
+  useEffect(() => {
+    console.log("nav useffect");
+    socket && socket.on("show-userStock", (stock) => {
+      displayUserStock(stock[1])
+    })
+    return () => {
+      console.log("socket disconnecting in nav");
+      socket && socket.disconnect();
+    };
+  }, [socket])
+  
 
   return (
     <AppBar className={classes.appBar}>
@@ -45,7 +68,7 @@ function Navbar() {
 
         <IconButton color='inherit'>
           <MoneyIcon />
-          <Typography variant='subtitle1'>$10,000</Typography>
+          <Typography variant='subtitle1'>$ <span id="userStockNav">{user && user.userStock}</span></Typography>
         </IconButton>
       </Toolbar>
     </AppBar>

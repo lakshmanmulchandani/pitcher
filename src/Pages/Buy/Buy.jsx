@@ -14,6 +14,7 @@ import {
 } from "@material-ui/core/";
 import useStyles from "./styles";
 import "./Buy.css";
+import Navbar from "../../Components/Navbar/Navbar.jsx"
 
 import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 
@@ -132,6 +133,8 @@ function Buy() {
   }
   // console.log(dummy[id]);
   return (
+    <>
+    <Navbar socket = {socket} />
     <div className='page-container'>
       <div className='top-section'>
         <div className='title'>{profile.name}</div>
@@ -174,7 +177,8 @@ function Buy() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </>
   );
 }
 

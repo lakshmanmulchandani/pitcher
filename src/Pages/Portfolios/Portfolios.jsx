@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 import {getPortfolio} from "../../actions/portfolio";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
+import { isLoggedIn } from "../../actions/userActions";
 
 const post = {
   title: "Company Name",
@@ -22,6 +23,7 @@ function Portfolios() {
 
   useEffect(() => {
     dispatch(getPortfolio());
+    dispatch(isLoggedIn());
   }, []);
 
   return !posts.length ? (
