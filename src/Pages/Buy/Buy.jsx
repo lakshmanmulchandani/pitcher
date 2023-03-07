@@ -76,9 +76,11 @@ function Buy() {
 
     socket.on("show-stock", (stock) => {
       console.log("show-stock ", stock);
-      displayUserStock(stock[1])
       displayStock(stock[0]);
     });
+    socket.on("show-userStock", (stock) => {
+      displayUserStock(stock[1])
+    })
 
     socket.on("stock-empty", () => {
       console.log("stock empty working");
