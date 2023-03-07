@@ -1,4 +1,6 @@
 import React, {useEffect, useRef} from "react";
+import {useDispatch} from "react-redux";
+import {getPortfolio} from "../../actions/portfolio";
 import {useParams} from "react-router";
 import {useSelector} from "react-redux";
 import {
@@ -41,6 +43,8 @@ function Buy() {
     socket.emit("buy", id, buyProd);
   };
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     socket = io("https://pitcherfork.onrender.com");
     console.log("useeffect");
@@ -80,16 +84,25 @@ function Buy() {
 
   var id = useParams("id");
   const classes = useStyles();
-  const posts = useSelector((state) => state.portfolios);
+  var posts = useSelector((state) => state.portfolios);
+  useEffect(() => {
+    dispatch(getPortfolio());
+  }, [posts]);
+
   id = id.id;
-  console.log(id);
 
-  var i = 0;
-  while (id != posts[i]._id) {
-    i++;
+  var profile;
+  if (posts.length != 0) {
+    var i = 0;
+    while (id != posts[i]._id) {
+      i++;
+    }
+    profile = posts[i];
+  } else {
+    profile = {
+      name: "test",
+    };
   }
-  const profile = posts[i];
-
   // console.log(dummy[id]);
   return (
     <div className='page-container'>
