@@ -6,7 +6,8 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 import logo from "./logo.jpg";
 import "./Navbar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoggedIn } from "../../actions/userActions";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+
 const displayUserStock = (stock) => {
   let div = document.getElementById("userStockNav");
   div.textContent = stock;
@@ -44,9 +46,12 @@ const displayUserStock = (stock) => {
 function Navbar({socket}) {
   const classes = useStyles();
   const { user } = useSelector((state) => state.entryReducer);
+  const dispatch = useDispatch()
  
   useEffect(() => {
     console.log("nav useffect");
+    dispatch(isLoggedIn());
+
     socket && socket.on("show-userStock", (stock) => {
       displayUserStock(stock[1])
     })
