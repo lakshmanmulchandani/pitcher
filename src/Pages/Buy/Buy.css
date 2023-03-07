@@ -1,49 +1,129 @@
-.Buy-Container{
-    
-    /* margin: 30px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 100%;
-    /* flex-direction: column; */
-    background: rgba(255, 255, 255, 0.3);
+body {
+    background-color: #161622;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin-top: 0;
+    padding-top:0 ;
+  }
   
-}
-
-.info{
-    /* max-width: 450px; */
-    /* min-width: 300px; */
-    width: 80%;
-    max-width: 450px;
+  .page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .top-section {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    margin-top: 0;
+  }
+  
+  .top-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .Buy-Container {
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-
-.Dashboard
-{
-    /* max-width: 450px; */
-    /* min-width: 300px; */
-}
-
-
-
-/* stock css  */
-
-.stock_wrapper {
-    background-color: aquamarine;
-    height: 100vh;
     width: 100%;
+    height: 60vh;
+    background-color: #161622;
+  }
+  
+  .Dashboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-#stock {
-    background-color: blue;
+    width: 100%;
+    margin-top: 5vh;
+  }
+  
+  .shares {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .RemainingShares {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #ccc;
+    color: #333333;
     font-size: 5rem;
-    padding: 10rem;
-}
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .RemainingShares-heading {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .RemainingShares-number {
+    font-size: 4rem;
+  }
+  
+  .buy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .buy-input {
+    margin-bottom: 1rem;
+  }
+  
+  .buy-input input {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  
+  .buy-button button {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    background-color: #ccc;
+    color: #333333;
+    border-radius: 5px;
+    border: none;
+    outline: 2px solid #ccc;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 480px) {
+    .buy-button button {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+  

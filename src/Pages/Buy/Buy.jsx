@@ -1,4 +1,3 @@
-
 import React, {useEffect, useRef} from "react";
 import {useParams} from "react-router";
 import {useSelector} from "react-redux";
@@ -14,7 +13,7 @@ import {
 import useStyles from "./styles";
 import "./Buy.css";
 
-import { ToastCallError,ToastCallSuccess } from "../../ReactToast";
+import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 
 import {io} from "socket.io-client";
 
@@ -39,12 +38,11 @@ function Buy() {
       return;
     }
 
-
     socket.emit("buy", id, buyProd);
   };
 
   useEffect(() => {
-    socket = io("https://pitcherfork.onrender.com")
+    socket = io("https://pitcherfork.onrender.com");
     console.log("useeffect");
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
@@ -59,19 +57,17 @@ function Buy() {
       displayStock(stock);
     });
 
-
     socket.on("stock-empty", () => {
       console.log("stock empty working");
       ToastCallError("stock empty");
     });
 
     socket.on("successfully-purchased", (purchasedProd) => {
-      ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`)
-    })
+      ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`);
+    });
 
-
-    socket.on('disconnect', function () {
-      console.log('Got disconnect!');
+    socket.on("disconnect", function () {
+      console.log("Got disconnect!");
       setInterval(() => {
         console.log("set interval");
       }, 5000);
@@ -79,7 +75,7 @@ function Buy() {
     return () => {
       console.log("socket disconnecg");
       socket.disconnect();
-    }
+    };
   }, []);
 
   var id = useParams("id");
@@ -95,43 +91,38 @@ function Buy() {
   const profile = posts[i];
 
   // console.log(dummy[id]);
-
   return (
-    <div>
-      <div className='Buy-Container'>
-        <div className='info'>
-          <Card>
-            <div className='title'>{profile.name}</div>
-            <CardMedia
-              className={classes.media}
-              image={
-                // post.selectedFile ||
-                "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
-              }
-              title={profile.name}
-            />
-
-            <div className='about'>{profile.about}</div>
-          </Card>
-        </div>
-
-        <div className='Dashboard'>
-          <div>
-            <div classsName='sharePrice'></div>
-            <div classsName='RemainingShares'></div>
-          </div>
-          <div>
-            <div className='No. of shares'></div>
-            <div className='Buy shares'></div>
-          </div>
-        </div>
+    <div className='page-container'>
+      <div className='top-section'>
+        <div className='title'>{profile.name}</div>
+        <img
+          src={
+            // post.selectedFile ||
+            "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
+          }
+          alt={profile.name}
+        />
       </div>
-      <div className='stock_wrapper'>
-        <div id='stock'>7</div>
-        <input ref={buyRef} type='number' />
-        <button type='submit' onClick={handleBuy}>
-          Buy
-        </button>
+
+      <div className='Buy-Container'>
+        <div className='Dashboard'>
+          <div className='shares'>
+            <div className='RemainingShares'>
+              <div className='RemainingShares-shape'>5</div>
+            </div>
+            <div className='RemainingShares-text'>Remaining Stocks</div>
+          </div>
+          <div className='buy'>
+            <div className='buy-input'>
+              <input ref={buyRef} type='number' placeholder='Enter quantity' />
+            </div>
+            <div className='buy-button'>
+              <Button variant='contained' color='primary' onClick={handleBuy}>
+                Buy
+              </Button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
