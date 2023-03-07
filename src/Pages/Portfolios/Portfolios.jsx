@@ -22,7 +22,7 @@ function Portfolios() {
 
   useEffect(() => {
     dispatch(getPortfolio());
-  }, [posts]);
+  }, []);
 
   return !posts.length ? (
     <div className='portfolio-container'>
