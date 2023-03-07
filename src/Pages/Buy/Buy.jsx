@@ -87,7 +87,7 @@ function Buy() {
   var posts = useSelector((state) => state.portfolios);
   useEffect(() => {
     dispatch(getPortfolio());
-  }, [posts]);
+  }, []);
 
   id = id.id;
 
