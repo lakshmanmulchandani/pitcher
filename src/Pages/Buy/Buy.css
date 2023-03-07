@@ -7,17 +7,9 @@ body {
   }
   
   .page-container {
-        max-width: 700px;
-          margin: 65px auto;
-          /* height: 80vh; */
-          min-height: 80vh;
-          background: rgb(10 6 6 / 25%);
-          box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
-          backdrop-filter: blur(4px);
-          -webkit-backdrop-filter: blur(4px);
-          border-radius: 10px;
-          border: 1px solid rgba(255, 255, 255, 0.18);
-          padding: 1rem;
+    max-width: 550px;
+    margin: 0 auto;
+    /* padding: 1rem; */
   }
   
   .top-section {
@@ -106,7 +98,6 @@ body {
   
   .RemainingShares-number {
     font-size: 4rem;
-    
   }
   
   .buy {
@@ -129,7 +120,6 @@ body {
     border-radius: 5px;
     border: none;
     outline: none;
-    font-family: sans-serif;
   }
 
   .buy-button{
@@ -137,7 +127,7 @@ body {
   }
   .buy-button button {
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: 2.4rem;
     background-color: #ccc;
     color: #333333;
     border-radius: 5px;
@@ -146,23 +136,11 @@ body {
     cursor: pointer;
   
   }
-
-  .RemainingShares-text{
-    padding-top: 0.6rem;
-    font-family: monospace;
-    font-size: 1.1rem;
-    color: var(--green);
-  }
   
   @media (max-width: 480px) {
     .buy-button button {
       padding: 0.5rem;
       font-size: 1rem;
-    }
-
-    .page-container {
-      margin: 0 auto;
-      background-color: transparent;
     }
   }
   
