@@ -58,8 +58,8 @@ function Buy() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket = io("https://pitcherfork.onrender.com");
-    // socket = io("http://localhost:5000");
+    // socket = io("https://pitcherfork.onrender.com");
+    socket = io("http://localhost:5000");
     console.log("useeffect");
 
     userId = localStorage.getItem("icell_pitcher_userId")
