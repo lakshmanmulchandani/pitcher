@@ -29,6 +29,7 @@ export const login = (code, name) => async (dispatch) => {
     dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     console.log(data.token);
     localStorage.setItem("icell_pitcher_code", JSON.stringify(data.token));
+    localStorage.setItem("icell_pitcher_userId", JSON.stringify(data.userId));
   } catch (error) {
     dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
   }

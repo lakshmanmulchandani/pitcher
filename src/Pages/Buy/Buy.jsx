@@ -28,10 +28,17 @@ const displayStock = (stock) => {
   let div = document.getElementById("stock");
   div.textContent = stock;
 };
+
+const displayUserStock = (stock) => {
+  let div = document.getElementById("userStock");
+  div.textContent = stock;
+};
 let socket;
+let userId; 
 function Buy() {
 
-
+  
+  
   const navigate = useNavigate();
   const stockRef = useRef("");
   const buyRef = useRef("");
@@ -44,7 +51,7 @@ function Buy() {
       return;
     }
 
-    socket.emit("buy", id, buyProd);
+    socket.emit("buy", id,userId, buyProd);
   };
 
   const dispatch = useDispatch();
@@ -53,23 +60,35 @@ function Buy() {
     // socket = io("https://pitcherfork.onrender.com");
     socket = io("http://localhost:5000");
     console.log("useeffect");
+
+    userId = localStorage.getItem("icell_pitcher_userId")
+      ? JSON.parse(localStorage.getItem("icell_pitcher_userId"))
+      : null;
+    console.log(userId);
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
     });
     socket.emit("join-room", id);
-    socket.emit("getStock", id, (getData) => {
-      displayStock(getData);
+    socket.emit("getStock", id,userId, (getData) => {
+      displayStock(getData[0]);
+      displayUserStock(getData[1]);
     });
 
     socket.on("show-stock", (stock) => {
       console.log("show-stock ", stock);
-      displayStock(stock);
+      displayUserStock(stock[1])
+      displayStock(stock[0]);
     });
 
     socket.on("stock-empty", () => {
       console.log("stock empty working");
       ToastCallError("stock empty");
     });
+    socket.on("userStock-empty", () => {
+      console.log("stock empty working");
+      ToastCallError("Dont have enough Stock ");
+    });
+
 
     socket.on("successfully-purchased", (purchasedProd) => {
       ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`);
@@ -77,9 +96,9 @@ function Buy() {
 
     socket.on("disconnect", function () {
       console.log("Got disconnect!");
-      setInterval(() => {
-        console.log("set interval");
-      }, 5000);
+      // setInterval(() => {
+      //   console.log("set interval");
+      // }, 5000);
       navigate("/portfolios")
     });
     return () => {
@@ -132,6 +151,14 @@ function Buy() {
               </div>
             </div>
             <div className='RemainingShares-text'>Remaining Stocks</div>
+          </div>
+          <div className='shares'>
+            <div className='RemainingShares'>
+              <div className='RemainingShares-shape' id='userStock'>
+                5
+              </div>
+            </div>
+            <div className='RemainingShares-text'>User Remaining Stocks</div>
           </div>
           <div className='buy'>
             <div className='buy-input'>
