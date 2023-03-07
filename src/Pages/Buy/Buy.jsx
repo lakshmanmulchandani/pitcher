@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from "react";
 import {useDispatch} from "react-redux";
 import {getPortfolio} from "../../actions/portfolio";
-import {useParams} from "react-router";
-import {useSelector} from "react-redux";
+import {useParams,useNavigate} from "react-router";
+import { useSelector } from "react-redux";
 import {
   Card,
   CardActions,
@@ -20,6 +20,7 @@ import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 import {io} from "socket.io-client";
 
 // const socket = io("https://pitcherfork.onrender.com");
+// http://localhost:5000
 
 console.log("outside buy");
 
@@ -29,6 +30,9 @@ const displayStock = (stock) => {
 };
 let socket;
 function Buy() {
+
+
+  const navigate = useNavigate();
   const stockRef = useRef("");
   const buyRef = useRef("");
 
@@ -46,7 +50,8 @@ function Buy() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket = io("https://pitcherfork.onrender.com");
+    // socket = io("https://pitcherfork.onrender.com");
+    socket = io("http://localhost:5000");
     console.log("useeffect");
     socket.on("connect", () => {
       console.log("Socket is connected (frontend)");
@@ -75,6 +80,7 @@ function Buy() {
       setInterval(() => {
         console.log("set interval");
       }, 5000);
+      navigate("/portfolios")
     });
     return () => {
       console.log("socket disconnecg");
