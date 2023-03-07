@@ -9,7 +9,7 @@ body {
   .page-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 1rem;
+    /* padding: 1rem; */
   }
   
   .top-section {
@@ -23,8 +23,13 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-  }
+    border-radius: 0 0 40px 40px;
+    -webkit-border-radius: 0 0 40px 40px;
+    -moz-border-radius: 0 0 40px 40px;
+    -ms-border-radius: 0 0 40px 40px;
+    -o-border-radius: 0 0 40px 40px;
+    border : 8px groove #07270c;
+}
   
   
   .title {
@@ -53,7 +58,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 5vh;
+    margin-top: 10vh;
   }
   
   .shares {
@@ -70,13 +75,18 @@ body {
     align-items: center;
     width: 200px;
     height: 150px;
-    border-radius: 10px;
+    border-radius: 0 25px 0 25px;
     background-color: #ccc;
     color: #333333;
     font-size: 5rem;
     font-weight: bold;
     text-align: center;
-  }
+    border : 8px double #07270c;
+    -webkit-border-radius: 0 25px 0 25px;
+    -moz-border-radius: 0 25px 0 25px;
+    -ms-border-radius: 0 25px 0 25px;
+    -o-border-radius: 0 25px 0 25px;
+}
   
   .RemainingShares-heading {
     margin-bottom: 1rem;
@@ -91,14 +101,16 @@ body {
   
   .buy {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    margin-bottom: 4vh;
   }
   
   .buy-input {
-    margin-bottom: 1rem;
+    margin:1vh;
   }
   
   .buy-input input {
@@ -108,16 +120,20 @@ body {
     border: none;
     outline: none;
   }
-  
+
+  .buy-button{
+    margin: 1 vh;
+  }
   .buy-button button {
     padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    font-size: 2.4rem;
     background-color: #ccc;
     color: #333333;
     border-radius: 5px;
     border: none;
-    outline: 2px solid #ccc;
+    border : 2px ridge #cbe3cf;
     cursor: pointer;
+  
   }
   
   @media (max-width: 480px) {
