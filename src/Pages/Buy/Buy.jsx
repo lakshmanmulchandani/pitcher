@@ -19,9 +19,8 @@ import Navbar from "../../Components/Navbar/Navbar.jsx";
 import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 
 import {io} from "socket.io-client";
+import BACKEND_URL from "../../config";
 
-// const socket = io("https://pitcherfork.onrender.com");
-// http://localhost:5000
 
 console.log("outside buy");
 
@@ -52,7 +51,7 @@ function Buy() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket = io("https://pitcherfork.onrender.com");
+    socket = io(BACKEND_URL);
     // socket = io("http://localhost:5000");
     console.log("useeffect");
 
