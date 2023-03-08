@@ -1,8 +1,8 @@
 import React, {useEffect, useRef} from "react";
 import {useDispatch} from "react-redux";
 import {getPortfolio} from "../../actions/portfolio";
-import {useParams,useNavigate} from "react-router";
-import { useSelector } from "react-redux";
+import {useParams, useNavigate} from "react-router";
+import {useSelector} from "react-redux";
 import {
   Card,
   CardActions,
@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core/";
 import useStyles from "./styles";
 import "./Buy.css";
-import Navbar from "../../Components/Navbar/Navbar.jsx"
+import Navbar from "../../Components/Navbar/Navbar.jsx";
 
 import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 
@@ -35,11 +35,8 @@ const displayUserStock = (stock) => {
   div.textContent = stock;
 };
 let socket;
-let userId; 
+let userId;
 function Buy() {
-
-  
-  
   const navigate = useNavigate();
   const stockRef = useRef("");
   const buyRef = useRef("");
@@ -52,7 +49,7 @@ function Buy() {
       return;
     }
 
-    socket.emit("buy", id,userId, buyProd);
+    socket.emit("buy", id, userId, buyProd);
   };
 
   const dispatch = useDispatch();
@@ -70,7 +67,7 @@ function Buy() {
       console.log("Socket is connected (frontend)");
     });
     socket.emit("join-room", id);
-    socket.emit("getStock", id,userId, (getData) => {
+    socket.emit("getStock", id, userId, (getData) => {
       displayStock(getData[0]);
       displayUserStock(getData[1]);
     });
@@ -80,8 +77,8 @@ function Buy() {
       displayStock(stock[0]);
     });
     socket.on("show-userStock", (stock) => {
-      displayUserStock(stock[1])
-    })
+      displayUserStock(stock[1]);
+    });
 
     socket.on("stock-empty", () => {
       console.log("stock empty working");
@@ -92,7 +89,6 @@ function Buy() {
       ToastCallError("Dont have enough Stock ");
     });
 
-
     socket.on("successfully-purchased", (purchasedProd) => {
       ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`);
     });
@@ -102,7 +98,7 @@ function Buy() {
       // setInterval(() => {
       //   console.log("set interval");
       // }, 5000);
-      navigate("/portfolios")
+      navigate("/portfolios");
     });
     return () => {
       console.log("socket disconnecg");
@@ -134,51 +130,55 @@ function Buy() {
   // console.log(dummy[id]);
   return (
     <>
-    <Navbar socket = {socket} />
-    <div className='page-container'>
-      <div className='top-section'>
-        <div className='title'>{profile.name}</div>
-        <img
-          src={
-            // post.selectedFile ||
-            "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
-          }
-          alt={profile.name}
-        />
-      </div>
+      <Navbar socket={socket} />
+      <div className='page-container'>
+        <div className='top-section'>
+          <div className='title'>{profile.name}</div>
+          <img
+            src={
+              // post.selectedFile ||
+              "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
+            }
+            alt={profile.name}
+          />
+        </div>
 
-      <div className='Buy-Container'>
-        <div className='Dashboard'>
-          <div className='shares'>
-            <div className='RemainingShares'>
-              <div className='RemainingShares-shape' id='stock'>
-                5
+        <div className='Buy-Container'>
+          <div className='Dashboard'>
+            <div className='shares'>
+              <div className='RemainingShares'>
+                <div className='RemainingShares-shape' id='stock'>
+                  5
+                </div>
               </div>
+              <div className='RemainingShares-text'>Remaining Stocks</div>
             </div>
-            <div className='RemainingShares-text'>Remaining Stocks</div>
-          </div>
-          <div className='shares'>
+            {/* <div className='shares'>
             <div className='RemainingShares'>
               <div className='RemainingShares-shape' id='userStock'>
                 5
               </div>
             </div>
             <div className='RemainingShares-text'>User Remaining Stocks</div>
-          </div>
-          <div className='buy'>
-            <div className='buy-input'>
-              <input ref={buyRef} type='number' placeholder='Enter quantity' />
-            </div>
-            <div className='buy-button'>
-              <Button variant='contained' color='primary' onClick={handleBuy}>
-                Buy
-              </Button>
+          </div> */}
+            <div className='buy'>
+              <div className='buy-input'>
+                <input
+                  ref={buyRef}
+                  type='number'
+                  placeholder='Enter quantity'
+                />
+              </div>
+              <div className='buy-button'>
+                <Button variant='contained' color='primary' onClick={handleBuy}>
+                  Buy
+                </Button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
-      </>
+    </>
   );
 }
 
