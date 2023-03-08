@@ -30,10 +30,7 @@ const displayStock = (stock) => {
   div.textContent = stock;
 };
 
-const displayUserStock = (stock) => {
-  let div = document.getElementById("userStock");
-  div.textContent = stock;
-};
+
 let socket;
 let userId;
 function Buy() {
@@ -69,16 +66,13 @@ function Buy() {
     socket.emit("join-room", id);
     socket.emit("getStock", id, userId, (getData) => {
       displayStock(getData[0]);
-      displayUserStock(getData[1]);
     });
 
     socket.on("show-stock", (stock) => {
       console.log("show-stock ", stock);
       displayStock(stock[0]);
     });
-    socket.on("show-userStock", (stock) => {
-      displayUserStock(stock[1]);
-    });
+
 
     socket.on("stock-empty", () => {
       console.log("stock empty working");
