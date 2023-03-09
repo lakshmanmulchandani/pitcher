@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {TextField, Button, Typography, Paper} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-// import FileBase from "react-file-base64";
+import FileBase from "react-file-base64";
 
 import useStyles from "./styles";
 import {createPortfolio} from "../../actions/portfolio";
@@ -12,7 +12,7 @@ const Admin = () => {
     name: "",
     about: "",
     tags: "",
-    // selectedFile: "",
+    selectedFile: "",
   });
   // const post = useSelector((state) =>
   //   currentId ? state.posts.find((message) => message._id === currentId) : null
@@ -32,7 +32,7 @@ const Admin = () => {
       name: "",
       about: "",
       tags: "",
-      // selectedFile: "",
+      selectedFile: "",
     });
   };
 
@@ -98,7 +98,7 @@ const Admin = () => {
             setPostData({...postData, tags: e.target.value.split(",")})
           }
         />
-        {/* <div className={classes.fileInput}>
+        <div className={classes.fileInput}>
           <FileBase
             type='file'
             multiple={false}
@@ -106,7 +106,7 @@ const Admin = () => {
               setPostData({...postData, selectedFile: base64})
             }
           />
-        </div> */}
+        </div>
 
         <Button
           className={classes.buttonSubmit}

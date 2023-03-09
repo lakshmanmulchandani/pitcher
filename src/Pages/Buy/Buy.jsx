@@ -21,14 +21,12 @@ import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 import {io} from "socket.io-client";
 import BACKEND_URL from "../../config";
 
-
 console.log("outside buy");
 
 const displayStock = (stock) => {
   let div = document.getElementById("stock");
   div.textContent = stock;
 };
-
 
 let socket;
 let userId;
@@ -71,7 +69,6 @@ function Buy() {
       console.log("show-stock ", stock);
       displayStock(stock[0]);
     });
-
 
     socket.on("stock-empty", () => {
       console.log("stock empty working");
@@ -129,7 +126,7 @@ function Buy() {
           <div className='title'>{profile.name}</div>
           <img
             src={
-              // post.selectedFile ||
+              profile.selectedFile ||
               "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
             }
             alt={profile.name}
