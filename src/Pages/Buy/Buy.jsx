@@ -138,7 +138,7 @@ function Buy() {
             <div className='shares'>
               <div className='RemainingShares'>
                 <div className='RemainingShares-shape' id='stock'>
-                  5
+                  100
                 </div>
               </div>
               <div className='RemainingShares-text'>Remaining Stocks</div>
