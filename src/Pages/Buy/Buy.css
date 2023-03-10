@@ -9,10 +9,11 @@ body {
   
   .page-container {
     max-width: 550px;
-    margin: 0 auto;
+    margin: 0;
     /* padding: 1rem; */
-  
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   
   .top-section {
