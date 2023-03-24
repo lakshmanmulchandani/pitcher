@@ -87,3 +87,15 @@
     border-radius: 4px;
     outline: none;
 }
+
+.logos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logos img
+{
+    height : 70px;
+   
+}

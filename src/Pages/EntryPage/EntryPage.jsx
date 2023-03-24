@@ -3,7 +3,9 @@ import "./EntryPage.css";
 import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {isLoggedIn, login} from "../../actions/userActions.js";
-
+import logo from "./NITrr.png";
+import logox from "./logoX.png";
+import logoy from "./Icell2.png";
 function EntryPage() {
   const navigate = useNavigate();
   const nameRef = useRef(null);
@@ -37,9 +39,19 @@ function EntryPage() {
       <div class='container'>
         <div class='card'>
           <form class='content' onSubmit={(e) => handleSubmit(e)}>
-            <h2>01</h2>
-            <h3>Your Code</h3>
+            <div className='logos'>
+              <div>
+                {" "}
+                <img src={logoy} alt='' />
+              </div>
 
+              <div>
+                {" "}
+                <img src={logo} alt='' />
+              </div>
+            </div>
+
+            <h3>Your Code</h3>
             <p>
               <input type='text' placeholder='Name' ref={nameRef} />
             </p>
