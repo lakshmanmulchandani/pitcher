@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import "./EntryPage.css";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {isLoggedIn, login} from "../../actions/userActions.js";
 import logo from "./NITrr.png";
@@ -36,9 +36,9 @@ function EntryPage() {
 
   return (
     <div className='entry'>
-      <div class='container'>
-        <div class='card'>
-          <form class='content' onSubmit={(e) => handleSubmit(e)}>
+      <div className='container'>
+        <div className='card'>
+          <form className='content' onSubmit={(e) => handleSubmit(e)}>
             <div className='logos'>
               <div>
                 {" "}
