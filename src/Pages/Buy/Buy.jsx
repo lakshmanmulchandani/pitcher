@@ -127,7 +127,7 @@ function Buy() {
           <img
             src={
               profile.selectedFile ||
-              "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
+              "https://img.freepik.com/premium-vector/abstract-business-logo-letter-n-vector-logo-template_740796-817.jpg"
             }
             alt={profile.name}
           />
