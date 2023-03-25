@@ -4,12 +4,14 @@ body {
     font-family: Arial, sans-serif;
     margin-top: 60px;
     padding-top:0 ;
+    
   }
   
   .page-container {
     max-width: 550px;
     margin: 0 auto;
     /* padding: 1rem; */
+    overflow-x: hidden;
   }
   
   .top-section {

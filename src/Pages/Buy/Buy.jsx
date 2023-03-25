@@ -19,9 +19,7 @@ import Navbar from "../../Components/Navbar/Navbar.jsx";
 import {ToastCallError, ToastCallSuccess} from "../../ReactToast";
 
 import {io} from "socket.io-client";
-
-// const socket = io("https://pitcherfork.onrender.com");
-// http://localhost:5000
+import BACKEND_URL from "../../config";
 
 console.log("outside buy");
 
@@ -29,7 +27,6 @@ const displayStock = (stock) => {
   let div = document.getElementById("stock");
   div.textContent = stock;
 };
-
 
 let socket;
 let userId;
@@ -40,9 +37,8 @@ function Buy() {
 
   const handleBuy = () => {
     let buyProd = buyRef.current.value;
-    console.log("buyProd", buyProd);
-    if (buyProd < 0 || !buyProd) {
-      ToastCallError("Enter buyProd ");
+    if (!buyProd || buyProd <= 0) {
+      ToastCallError("Invalid Input");
       return;
     }
 
@@ -52,7 +48,7 @@ function Buy() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    socket = io("https://pitcherfork.onrender.com");
+    socket = io(BACKEND_URL);
     // socket = io("http://localhost:5000");
     console.log("useeffect");
 
@@ -73,7 +69,6 @@ function Buy() {
       displayStock(stock[0]);
     });
 
-
     socket.on("stock-empty", () => {
       console.log("stock empty working");
       ToastCallError("stock empty");
@@ -84,7 +79,7 @@ function Buy() {
     });
 
     socket.on("successfully-purchased", (purchasedProd) => {
-      ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`);
+      ToastCallSuccess(`Successfully Purchased ${purchasedProd} stocks`);
     });
 
     socket.on("disconnect", function () {
@@ -130,8 +125,8 @@ function Buy() {
           <div className='title'>{profile.name}</div>
           <img
             src={
-              // post.selectedFile ||
-              "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
+              profile.selectedFile ||
+              "https://img.freepik.com/premium-vector/abstract-business-logo-letter-n-vector-logo-template_740796-817.jpg"
             }
             alt={profile.name}
           />
@@ -142,7 +137,7 @@ function Buy() {
             <div className='shares'>
               <div className='RemainingShares'>
                 <div className='RemainingShares-shape' id='stock'>
-                  5
+                  100
                 </div>
               </div>
               <div className='RemainingShares-text'>Remaining Stocks</div>

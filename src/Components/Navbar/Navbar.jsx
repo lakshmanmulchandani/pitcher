@@ -4,7 +4,7 @@ import {AppBar, Toolbar, Typography, IconButton} from "@material-ui/core";
 import MoneyIcon from "@material-ui/icons/Money";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-import logo from "./logo.jpg";
+import logo from "./logoX.png";
 import "./Navbar.css";
 import {useDispatch, useSelector} from "react-redux";
 import {isLoggedIn} from "../../actions/userActions";
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: theme.zIndex.drawer + 1,
   },
   logo: {
-    height: 40,
+    height: 55,
     marginRight: theme.spacing(2),
   },
   title: {
@@ -61,11 +61,6 @@ function Navbar({socket}) {
     <AppBar className={classes.appBar}>
       <Toolbar>
         <img src={logo} alt='Nitrr Logo' className={classes.logo} />
-
-        <Typography variant='h4' className={classes.title}>
-          NITRRFIE
-        </Typography>
-
         <IconButton color='inherit'>
           <MoneyIcon />
           <Typography variant='subtitle1'>
