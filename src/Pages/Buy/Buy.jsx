@@ -34,6 +34,7 @@ function Buy() {
   const navigate = useNavigate();
   const stockRef = useRef("");
   const buyRef = useRef("");
+  const buyBtn = useRef(null);
 
   const handleBuy = () => {
     let buyProd = buyRef.current.value;
@@ -42,7 +43,7 @@ function Buy() {
       return;
     }
 
-    socket.emit("buy", id, userId, buyProd);
+    socket.volatile.emit("buy", id, userId, buyProd);
   };
 
   const dispatch = useDispatch();
@@ -159,7 +160,7 @@ function Buy() {
                 />
               </div>
               <div className='buy-button'>
-                <Button variant='contained' color='primary' onClick={handleBuy}>
+                <Button variant='contained' color='primary' onClick={handleBuy} ref={buyBtn} >
                   Buy
                 </Button>
               </div>
