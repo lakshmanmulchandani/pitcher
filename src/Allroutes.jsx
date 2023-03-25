@@ -5,6 +5,8 @@ import EntryPage from "./Pages/EntryPage/EntryPage";
 import Portfolios from "./Pages/Portfolios/Portfolios";
 import Admin from "./Pages/Admin/Admin";
 import Navbar from "./Components/Navbar/Navbar";
+
+import History from "./Pages/Buy/History.js"
 function Allroutes() {
   return (
     <div>
@@ -15,6 +17,7 @@ function Allroutes() {
         {/* Buy will be later modified to Buy/:id */}
         <Route path='/Portfolios' element={<><Navbar /><Portfolios /></>} />
         <Route path='/Admin' element={<><Navbar /><Admin /></>} />
+        <Route path= "/Portfolios/history" element = {<><Navbar/><History /></>} />
       </Routes>
     </div>
   );

@@ -51,7 +51,7 @@ function EntryPage() {
               </div>
             </div>
 
-            <h3>Your Code</h3>
+            <h3>AVINYA 2K23</h3>
             <p>
               <input type='text' placeholder='Name' ref={nameRef} />
             </p>

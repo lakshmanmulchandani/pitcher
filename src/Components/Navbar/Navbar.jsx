@@ -7,7 +7,8 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import logo from "./logoX.png";
 import "./Navbar.css";
 import {useDispatch, useSelector} from "react-redux";
-import {isLoggedIn} from "../../actions/userActions";
+import { isLoggedIn } from "../../actions/userActions";
+import {useNavigate} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -42,6 +43,11 @@ function Navbar({socket}) {
   const classes = useStyles();
   const {user} = useSelector((state) => state.entryReducer);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleHistory = () => {
+      navigate("/portfolios/history");
+  }
 
   useEffect(() => {
     console.log("nav useffect");
@@ -63,8 +69,8 @@ function Navbar({socket}) {
         <img src={logo} alt='Nitrr Logo' className={classes.logo} />
         <IconButton color='inherit'>
           <MoneyIcon />
-          <Typography variant='subtitle1'>
-            $ <span id='userStockNav'>{user && user.userStock}</span>
+          <Typography variant='subtitle1' >
+            $ <span onClick={handleHistory} id='userStockNav'>{user && user.userStock}</span>
           </Typography>
         </IconButton>
       </Toolbar>
