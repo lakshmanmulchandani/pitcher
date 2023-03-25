@@ -32,9 +32,7 @@ let socket;
 let userId;
 function Buy() {
   const navigate = useNavigate();
-  const stockRef = useRef("");
   const buyRef = useRef("");
-  const buyBtn = useRef(null);
 
   const handleBuy = () => {
     let buyProd = buyRef.current.value;
@@ -160,7 +158,7 @@ function Buy() {
                 />
               </div>
               <div className='buy-button'>
-                <Button variant='contained' color='primary' onClick={handleBuy} ref={buyBtn} >
+                <Button variant='contained' color='primary' onClick={handleBuy}>
                   Buy
                 </Button>
               </div>
