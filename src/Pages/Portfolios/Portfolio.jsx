@@ -13,12 +13,9 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import useStyles from "./styles";
 
-
-
-
 function Portfolio({post}) {
   const classes = useStyles();
-  console.log("post is ",post);
+  console.log("post is ", post);
 
   return (
     <Card className={classes.card}>
@@ -26,7 +23,7 @@ function Portfolio({post}) {
         className={classes.media}
         image={
           post.selectedFile ||
-          "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png"
+          "https://img.freepik.com/premium-vector/abstract-business-logo-letter-n-vector-logo-template_740796-817.jpg"
         }
         title={post.name}
       />
@@ -54,7 +51,6 @@ function Portfolio({post}) {
           {post.about}
         </Typography>
       </CardContent>
-      
     </Card>
   );
 }
