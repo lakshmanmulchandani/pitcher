@@ -37,9 +37,8 @@ function Buy() {
 
   const handleBuy = () => {
     let buyProd = buyRef.current.value;
-    console.log("buyProd", buyProd);
-    if (buyProd < 0 || !buyProd) {
-      ToastCallError("Enter buyProd ");
+    if (!buyProd || buyProd <= 0) {
+      ToastCallError("Invalid Input");
       return;
     }
 
@@ -80,7 +79,7 @@ function Buy() {
     });
 
     socket.on("successfully-purchased", (purchasedProd) => {
-      ToastCallSuccess(`Successfully Purchased ${purchasedProd} product`);
+      ToastCallSuccess(`Successfully Purchased ${purchasedProd} stocks`);
     });
 
     socket.on("disconnect", function () {
